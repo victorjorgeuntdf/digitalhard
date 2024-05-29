@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/logo_pequeño.png" type="image/x-icon">
+    <!-- Fuentes de iconos Font-Awesome -->
+    <script src="https://kit.fontawesome.com/ba8bc2892d.js" crossorigin="anonymous"></script>
+    <!-- Enlace al css -->
+    <link rel="stylesheet" href="../styles/contacto.css">
+    <!-- Enlace al js -->
+    <script defer src="../js/index.js"></script>
+    <!-- Fuente de texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet">
+    <title>Contacto | DigitalHard</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <!-- Menu desplegable para smartphone -->
+            <button class="nav-toggle animate__bounceIn fa-solid fa-bars"></button>
+            <!-- Menu principal -->
+            <ul class="nav-menu nav-menu_visible">
+                <li class="nav-menu-item animate__bounceIn "><a href="../index.html"
+                        class="nav-menu-link nav-link"><b>INICIO</b></a></li>
+                <li class="nav-menu-item animate__bounceIn"><a href="../pages/productos.html"
+                        class="nav-menu-link nav-link"><b>PRODUCTOS</b></a></li>
+                <li class="nav-menu-item animate__bounceIn"><a href="../pages/nosotros.html"
+                        class="nav-menu-link nav-link"><b>NOSOTROS</b></a></li>
+                <li class="nav-menu-item animate__bounceIn"><a href="../pages/contacto.html"
+                        class="nav-menu-link nav-link nav-menu-link_active"><b>CONTACTO</b></a></li>
+            </ul>
+            <!-- Logo -->
+            <div class="nav-link">
+                <img class="logo" src="../img/DigitalHard.png" alt="logo" />
+            </div>
+        </nav>
+    </header>
+    <main class="main_contacto">
+        <div class="container-form">
+            <div class="video-container">
+                <video src="../img/video_digitalHard.mp4" controls></video>
+            </div>
+            <div class="mapa">
+                <div id="map"></div>
+                <div class="direccion">
+                    <h4>Dirección</h4>
+                    <p>Magallanes 484, CP9410</p>
+                    <p>Ciudad de Ushuaia</p><br>
+                    <h4>Teléfono</h4>
+                    <p>2901487873</p><br>
+                    <h4>Correo</h4>
+                    <p>victorjorgeuntdf@gmail.com</p><br>
+                    <h4>Envíos</h4>
+                    <p>Tierra del Fuego</p>
+                </div>
+            </div>
+            <form class="formulario" id="myForm" name="myForm" onsubmit="return validacion()"
+                action="https://formspree.io/f/mayzzbdg" method="POST">
+                <p class="consultanos">CONSULTÁNOS</p>
+                <div>
+                    <input type="text" id="nombre_apellido" name="nombre_apellido" placeholder="Nombre y Apellido">
+                </div>
+                <div>
+                    <input type="number" id="cel" name="cel" placeholder="Número de teléfono">
+                </div>
+                <div>
+                    <select id="provincia" name="provincia">
+                        <option>Provincia</option>
+                        <option value="">Caba</option>
+                        <option value="">Buenos Aires</option>
+                        <option value="">Catamarca</option>
+                        <option value="">Chaco</option>
+                        <option value="">Chubut</option>
+                        <option value="">Córdoba</option>
+                        <option value="">Corrientes</option>
+                        <option value="">Entre Ríos</option>
+                        <option value="">Formosa</option>
+                        <option value="">Jujuy</option>
+                        <option value="">La Pampa</option>
+                        <option value="">La Rioja</option>
+                        <option value="">Mendoza</option>
+                        <option value="">Misiones</option>
+                        <option value="">Neuquén</option>
+                        <option value="">Río Negro</option>
+                        <option value="">Salta</option>
+                        <option value="">San Juan</option>
+                        <option value="">Santa Cruz</option>
+                        <option value="">Santa Fe</option>
+                        <option value="">Santiago del Estero</option>
+                        <option value="">Tierra del Fuego</option>
+                        <option value="">Tucumán</option>
+                </div>
+                <div>
+                    <input type="email" id="mail" name="mail" placeholder="Correo electrónico" required>
+                </div>
+                <textarea class="comentario" id="comentario" name="comentario"
+                    placeholder="Dejanos un comentario"></textarea>
+                <div class="buttons">
+                    <input type="reset" value="Borrar">
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <!-- Logo Empresa -->
+        <img class="logo" src="../img/DigitalHard_sf.png" alt="logo" />
+        <!--Links a redes sociales-->
+        <div class="contenedor-redes-sociales">
+            <div class="icono-redes"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+            <div class="icono-redes"><a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div>
+            <div class="icono-redes"><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+            <div class="icono-redes"><a href="https://api.whatsapp.com/send?phone=5492901487873" target="_blank"><i
+                        class="fa-brands fa-whatsapp"></i></a></div>
+        </div>
+        <!--Boton de ir hacia arriba-->
+        <div id="button-up">
+            <i class="fa-solid fa-angles-up"></i>
+        </div>
+        <!--Encabezado inferior-->
+        <div class="copyright">
+            <p>© Copyright 2024. Todos los derechos reservados. Codo a Codo 2024</p>
+        </div>
+    </footer>
+</body>
+<script src="../js/contacto.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWqbWxjFzi1-poRLFkbLQ-kjYtZg0kNs&callback=iniciarMap"></script>
+</html>
