@@ -110,6 +110,13 @@
             </form>
         </div>
     </main>
+    <main_weather>
+        <article id="Plantilla">
+            <img src="" alt="">
+            <p></p>
+        </article>
+        <div id="Contenedor"></div>
+    </main_weather>
     <footer class="footer">
         <!-- Logo Empresa -->
         <img class="logo" src="../img/DigitalHard_sf.png" alt="logo" />
@@ -134,5 +141,12 @@
 <script src="../js/contacto.js"></script>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWqbWxjFzi1-poRLFkbLQ-kjYtZg0kNs&callback=iniciarMap"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const ciudades = ['Ushuaia', 'Rio Grande'];
+        // Llamar a IniciarWeather para cada ciudad
+        ciudades.forEach(ciudad => IniciarWeather(ciudad));
+    });
+</script>
 
 </html>
