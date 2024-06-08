@@ -89,7 +89,7 @@ function IniciarWeather(city) {
 
       nuevoClima.querySelector("img").src = icono; // Asigna la URL del ícono
       nuevoClima.querySelector("img").alt = descripcion; // Usa la descripción como texto alternativo
-      nuevoClima.querySelector("p").innerHTML = `${city}, Temp: ${temperatura}°C, Viento: ${viento} km/h`;
+      nuevoClima.querySelector("p").innerHTML = `${city}, Temp: ${temperatura}°C`;
 
       contenedor.appendChild(nuevoClima);
     })
