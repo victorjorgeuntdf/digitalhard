@@ -239,12 +239,16 @@ article {
     border-radius: 5px;
     padding: 15px;
     margin: 5px;
+    text-align: center; 
 }
 
 article img {
+    display: block; 
+    margin: 0 auto; 
     border-radius: 999px;
     width: 30px; 
 }
+
 article p {
     text-align: center;
 }
@@ -255,6 +259,7 @@ article p {
     align-items: center;
     margin-bottom: 20px;
 }
+
 
 /*FOOTER*/
 footer {
