@@ -26,4 +26,4 @@ dist/
 *.egg-info/
 
 # Carpeta de entorno virtual
-digitalhard/
+digitalhardvenv/

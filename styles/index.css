@@ -423,18 +423,38 @@ body {
     margin-bottom: 30px;
     color: rgba(0, 0, 0, 0.7);
 }
+
 /* Para Mysql */
-.light-background {
-    background-image: url("./resources/img/bg.png");
+:root {
+    --main: #5900FF;
+    --main-midtone: #885bdc;
+    --main-light: #EFE7FF;
+    --secondary: #FFEFBD;
+    --secondary-light: #FFF8E4;
+    --dark: #242424;
+    --dark-light: #2F2F2F;
+
+    --completed: #a3ffa0;
+    --archived: #ffa0a0;
+
+    --main-padding: 50px;
+    --secondary-padding: 25px;
+    --terciary-padding: 15px;
+    --min-padding: 10px;
 }
 
 .dark-background {
-    background-image: url("./resources/img/bg_dark.png");
+    background-image: url("../resources/img/bg_dark.png");
 }
 
-main_section {
-    min-height: 100vh;
+main {
+    padding: var(--main-padding);
 
+    @media only screen and (max-width: 600px) {
+        padding: var(--secondary-padding);
+    }
+    
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -497,7 +517,7 @@ main_section {
             justify-content: flex-start;
 
             width: 300px;
-            height: 400px;
+            height: 250px;
 
             padding: var(--secondary-padding);
 
@@ -505,7 +525,7 @@ main_section {
 
             @media only screen and (max-width: 600px) {
                 width: 200px;
-                height: 300px;
+                height: 150px;
     
                 padding: var(--min-padding);
     
@@ -647,6 +667,29 @@ main_section {
             }
         }
     }
+}
+
+@keyframes scroll-color-change {
+    from {
+        color: var(--dark);
+    }
+    to {
+        color: var(--main-light);
+    }
+}
+
+@keyframes scroll-color-change-inverse {
+    from {
+        color: var(--main);
+    }
+}
+
+.chanfle {
+    /*Una forma de obtener esquinas a 45 grados*/
+    /* https://css-generators.com/custom-corners/ */
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+    overflow: hidden;
+    z-index: 1;
 }
 
 

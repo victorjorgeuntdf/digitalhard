@@ -13,7 +13,7 @@ function add_new_task(event) {
 
     fetchData(url, "POST", () => {
         document.querySelector("#Formulario").reset();
-        window.location.replace("tareas.html#TareasPendientes");
+        window.location.replace("../index.html#TareasPendientes");
     }, 
     data);
 }
@@ -28,7 +28,7 @@ function update_task(event) {
 
     fetchData(url, "PUT", () => {
         document.querySelector("#Formulario").reset();
-        window.location.replace("tareas.html#TareasPendientes");
+        window.location.replace("../index.html#TareasPendientes");
     }, 
     data);
 }
