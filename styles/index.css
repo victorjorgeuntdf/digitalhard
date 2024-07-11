@@ -516,7 +516,7 @@ main {
 
             justify-content: flex-start;
 
-            width: 300px;
+            width: 350px;
             height: 250px;
 
             padding: var(--secondary-padding);
@@ -524,7 +524,7 @@ main {
             transition: all 0.1s;
 
             @media only screen and (max-width: 600px) {
-                width: 200px;
+                width: 250px;
                 height: 150px;
     
                 padding: var(--min-padding);
