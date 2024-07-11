@@ -423,6 +423,232 @@ body {
     margin-bottom: 30px;
     color: rgba(0, 0, 0, 0.7);
 }
+/* Para Mysql */
+.light-background {
+    background-image: url("./resources/img/bg.png");
+}
+
+.dark-background {
+    background-image: url("./resources/img/bg_dark.png");
+}
+
+main_section {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    h2 {
+        color: var(--main-light);
+        font-weight: 200;
+    }
+ 
+    .headerActionButton {
+        color: var(--main-light);
+        border: none;
+        
+        background-color: transparent;
+        
+        /* font-family: 'Roboto'; */
+        font-weight: 200;
+        font-size: 0.75em;
+
+        transition: all 0.2s;
+    }
+
+    .headerActionButton.active {
+        color: var(--secondary);
+        text-decoration: underline;
+    }
+
+    .headerActionButton:hover {
+        color: var(--main);
+        cursor: pointer;
+    }
+
+    .tareas {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1;
+        gap: var(--main-padding);
+
+        padding: var(--terciary-padding);
+
+        .tareas-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--main-padding);
+        }
+
+        .tarea {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: flex-start;
+
+            width: 300px;
+            height: 400px;
+
+            padding: var(--secondary-padding);
+
+            transition: all 0.1s;
+
+            @media only screen and (max-width: 600px) {
+                width: 200px;
+                height: 300px;
+    
+                padding: var(--min-padding);
+    
+                font-size: 0.75em;
+            }
+
+            h3 {
+                padding: var(--min-padding);
+
+                .detalle {
+                    color: gray;
+                    font-size: 0.75em;
+                }
+            }
+
+            hr {
+                width: 100%;
+                margin: 5px;
+            }
+
+            .descripcion {
+                padding: var(--min-padding);
+                line-height: 1.5em;
+
+                flex: 6;
+
+                width: 100%;
+            }
+
+            .acciones {
+                flex: 1;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+
+                width: 100%;
+                opacity: 0;
+
+                font-size: 2em;
+                
+                @media only screen and (max-width: 600px) {
+                    font-size: 1.7em;
+                }
+
+                transition: all 0.1s;
+
+                button {
+                    margin: 0 5px;
+                    color: var(--dark);
+                    transition: all 0.2s;
+                    
+                    border: none;
+                    background-color: transparent;
+                    font-size: 1em;
+                }
+
+                button:hover {
+                    cursor: pointer;
+                }
+
+                #Crear:hover,
+                #Completar:hover,
+                #Pendiente:hover {
+                    color: var(--main);
+                }
+
+                #Crear:hover {
+                    cursor: pointer;
+                }
+
+                #Editar:hover {
+                    color: var(--main-midtone);
+                }
+
+                #Archivar:hover,
+                #Cancelar:hover {
+                    color: red;
+                }
+            }
+
+            .fecha {
+                position: absolute;
+                bottom:0;
+                right: 0;
+                padding: var(--min-padding);
+
+                font-weight: 400;
+                font-size: 0.8em;
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 0.6em;
+                }
+            }
+        }
+
+        .tarea.pendiente {
+            background-color: var(--secondary);
+        }
+
+        .tarea.completada {
+            background-color: var(--completed);
+        }
+
+        .tarea.archivada {
+            background-color: var(--archived);
+        }
+
+        .tarea:hover .acciones {
+            opacity: 100;
+        }
+
+        .tarea.agregar {
+            width: unset;
+            height: unset;
+            position: sticky;
+            padding: 0;
+            bottom: 0;
+            right: var(--secondary-padding);
+            z-index: 100;
+
+            background-color: transparent;
+            transition: all 0.2s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .accion {
+                color: var(--main-light);
+                font-size: 4em;
+
+                transition: all 0.2s;
+            }
+
+            .accion:hover {
+                color: var(--main);
+            }
+        }
+    }
+}
+
 
 .footer_section {
     color: #EFE9F4;

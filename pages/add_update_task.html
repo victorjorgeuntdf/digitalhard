@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar | DigitalHard</title>
+
+    <link rel="shortcut icon" href="../img/logo_pequeño.png" type="image/x-icon">
+    <!-- Fuentes de iconos Font-Awesome -->
+    <script src="https://kit.fontawesome.com/ba8bc2892d.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="../styles/tareas.css">
+    <link rel="stylesheet" href="../styles/add_task.css">
+</head>
+
+<body>
+    <main class="dark-background">
+        <h2 id="TareasPendientes"><span class="actionTitle">Agregar nueva tarea</span><br>
+            <a href="../index.html#TareasPendientes">Cancelar</a>
+        </h2>
+        <section class="tareas">
+            <div class="tareas-container">
+                <article class="tarea pendiente chanfle">
+                    <form id="Formulario" method="POST">
+                        <input type="text" id="Titulo" name="Titulo" placeholder="Título" required>
+                        <hr>
+                        <textarea name="descripcion" id="Descripcion" class="descripcion" placeholder="Descripción"
+                            required></textarea>
+                        <div class="acciones">
+                            <a href="../index.html#TareasPendientes" id="Cancelar" title="Cancelar"><i
+                                    class='bx bxs-message-square-x'></i></a>
+                            <button type="button" id="Crear" title="Crear"><i
+                                    class='bx bxs-message-square-check'></i></button>
+                        </div>
+                        <span class="fecha" title="Fecha de creación"></span>
+                        <input id="task_id" type="hidden" name="task_id">
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <!-- Logo Empresa -->
+        <img class="logo" src="../img/DigitalHard_sf.png" alt="logo" />
+        <!--Links a redes sociales-->
+        <div class="contenedor-redes-sociales">
+            <div class="icono-redes"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+            <div class="icono-redes"><a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div>
+            <div class="icono-redes"><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+            <div class="icono-redes"><a href="https://api.whatsapp.com/send?phone=5492901487873" target="_blank"><i
+                        class="fa-brands fa-whatsapp"></i></a></div>
+        </div>
+        <!--Boton de ir hacia arriba-->
+        <div id="button-up">
+            <i class="fa-solid fa-angles-up"></i>
+        </div>
+        <!--Encabezado inferior-->
+        <div class="copyright">
+            <p>© Copyright 2024. Todos los derechos reservados. Codo a Codo 2024</p>
+        </div>
+    </footer>
+
+    <script src="../js/fetchData.js"></script>
+    <!-- <script src="../js/add_update_task.js"></script> -->
+    <script src="../js/ejemplo_fetch_post.js"></script>
+</body>
+
+</html>

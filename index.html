@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,10 +16,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
         rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Enlace al JavaScript-->
     <script defer src="./js/index.js"></script>
     <title>DigitalHard</title>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
@@ -229,6 +232,72 @@
             </div>
         </section>
     </section>
+    <main_section class="dark-background">
+        <h2 id="TareasPendientes">
+            Mis Tareas<br> 
+            <button type="menu" id="VerPendientes" class="headerActionButton active" title="Ver todas las tareas pendientes">Pendientes</button>
+            <button type="menu" id="VerCompletadas" class="headerActionButton" title="Ver todas las tareas Completadas">Completadas</button>
+            <button type="menu" id="VerArchivadas" class="headerActionButton" title="Ver todas las tareas Archivadas">Archivadas</button>
+        </h2>
+        <section class="tareas">
+            <div class="tareas-container">
+                <article class="tarea chanfle pendiente template">
+                    <h3>
+                        <span class="titulo">Tarea 1</span>
+                    </h3>
+                    <hr>
+                    <p class="descripcion">
+                        Descripcion tarea pendiente
+                    </p>
+                    <div class="acciones">
+                        <button id="Archivar" title="Archivar"><i class='bx bxs-message-square-x' ></i></button>
+                        <button id="Editar" title="Editar"><i class='bx bxs-message-square-edit' ></i></button>
+                        <button id="Completar" title="Completar"><i class='bx bxs-message-square-check'></i></button>
+                    </div>
+                    <span class="fecha" title="Fecha de creación">19/12/24</span>
+                    <input type="hidden" name="task_id" class="task_id">
+                </article>
+                <article class="tarea chanfle completada template">
+                    <h3>
+                        <span class="titulo">Tarea 2</span>
+                        <span class="detalle">(Completada)</span>
+                    </h3>
+                    <hr>
+                    <p class="descripcion">
+                        Descripcion tarea completada
+                    </p>
+                    <div class="acciones">
+                        <button id="Archivar" title="Archivar"><i class='bx bxs-message-square-x' ></i></button>
+                        <button id="Pendiente" title="Marcar como pendiente"><i class='bx bxs-door-open'></i></button>
+                    </div>
+                    <span class="fecha" title="Fecha de creación">19/12/24</span>
+                    <input type="hidden" name="task_id" class="task_id">
+                </article>
+                <article class="tarea chanfle archivada template">
+                    <h3>
+                        <span class="titulo">Tarea 2</span>
+                        <span class="detalle">(Archivada)</span>
+                    </h3>
+                    <hr>
+                    <p class="descripcion">
+                        Descripcion tarea archivada
+                    </p>
+                    <div class="acciones">
+                        <button id="Pendiente" title="Marcar como pendiente"><i class='bx bxs-door-open'></i></button>
+                    </div>
+                    <span class="fecha" title="Fecha de creación">19/12/24</span>
+                    <input type="hidden" name="task_id" class="task_id">
+                </article>
+            </div>
+            <article class="tarea agregar">
+                <a href="./pages/add_update_task.html" class="accion">
+                    <i class='bx bxs-message-square-add'></i>
+                </a>
+            </article>
+        </section>
+    </main_section>
+    <script src="./js/fetchData.js"></script>
+    <script src="./js/ejemplo_fetch_get.js"></script>
 </body>
 <footer class="footer_section">
     <!-- Logo Empresa -->
@@ -250,4 +319,5 @@
         <p>© Copyright 2024. Todos los derechos reservados. Codo a Codo 2024</p>
     </div>
 </footer>
+
 </html>
