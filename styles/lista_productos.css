@@ -62,9 +62,9 @@ table tr:hover {
 }
 
 .boton-editar {
-    background-color: #4CAF50; /* Color de fondo para el botón de editar */
+    background-color: #4CAF50; 
     color: white;
-    padding: 5px 10px; /* Tamaño similar al botón eliminar */
+    padding: 5px 10px; 
     border: none;
     border-radius: 3px;
     cursor: pointer;
