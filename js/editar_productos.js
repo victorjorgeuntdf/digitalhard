@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let id_producto = params.get("id_producto"); // Obtener el ID del producto de la URL
 
     // Si usas localStorage para almacenar el ID del producto, sería algo como:
-    // let id_producto = localStorage.getItem('producto_id');
+    //let id_producto = localStorage.getItem('producto_id');
 
     if (id_producto) {
         // Realizar una solicitud para obtener los detalles del producto por su ID
@@ -61,14 +61,7 @@ function actualizarProducto(id_producto) {
         url,
         "PUT",
         () => {
-            Swal.fire({
-                title: '¡Éxito!',
-                text: 'Producto actualizado correctamente',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            }).then(() => {
-                window.location.replace("lista_productos.html");
-            });
+            window.location.replace("lista_productos.html");
         },
         data
     );

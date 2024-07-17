@@ -54,13 +54,13 @@ def create_table_productos():
             nombre VARCHAR(50) NOT NULL,
             descripcion VARCHAR(300) NOT NULL,
             categoria VARCHAR(100) NOT NULL,
-            precio DECIMAL(10, 2),
-            cantidad_disponible INT,
+            precio DECIMAL(10, 2) NOT NULL,
+            cantidad_disponible INT NOT NULL,
             fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             marca VARCHAR(100),
             modelo VARCHAR(100),
-            activo BOOLEAN
+            activo BOOLEAN NOT NULL
         );
         """
     )
