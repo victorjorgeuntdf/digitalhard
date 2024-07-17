@@ -39,30 +39,31 @@ def init_app(app):
 
 def test_connection():
     conn = mysql.connector.connect(**DATABASE_CONFIG) 
-
-    cur = conn.cursor() 
-    
+    cur = conn.cursor()    
     conn.commit() 
-    
     cur.close() 
     conn.close()
 
-def create_table_tareas():
+def create_table_productos():
     conn = mysql.connector.connect(**DATABASE_CONFIG)
     cur = conn.cursor()
     cur.execute(
         """
-        CREATE TABLE IF NOT EXISTS Tareas (
+        CREATE TABLE IF NOT EXISTS Productos (
             id INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(50) NOT NULL,
             descripcion VARCHAR(300) NOT NULL,
-            fecha_creacion DATE NOT NULL,
-            completada BOOLEAN NOT NULL,
-            activa BOOLEAN NOT NULL
+            categoria VARCHAR(100) NOT NULL,
+            precio DECIMAL(10, 2),
+            cantidad_disponible INT,
+            fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            marca VARCHAR(100),
+            modelo VARCHAR(100),
+            activo BOOLEAN
         );
         """
     )
-    conn.commit()
-   
+    conn.commit()   
     cur.close()
     conn.close()

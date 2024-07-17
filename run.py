@@ -7,30 +7,23 @@ from app.database import *
 app = Flask(__name__)
 
 # Rutas de API-Rest
-app.route('/', methods=['GET'])(index)
-
-# CRUD
-app.route('/api/tasks/pending/', methods=['GET'])(get_pending_tasks)
-app.route('/api/tasks/completed/', methods=['GET'])(get_completed_tasks)
-app.route('/api/tasks/archived/', methods=['GET'])(get_archived_tasks)
-
-app.route('/api/tasks/fetch/<int:task_id>', methods=['GET'])(get_task)
-
-app.route('/api/tasks/create/', methods=['POST'])(create_task)
-app.route('/api/tasks/update/<int:task_id>', methods=['PUT'])(update_task)
-
-app.route('/api/tasks/archive/<int:task_id>', methods=['DELETE'])(archive_task)
-app.route('/api/tasks/complete/set/<int:task_id>', methods=['PUT'])(set_complete_task)
-app.route('/api/tasks/complete/reset/<int:task_id>', methods=['PUT'])(reset_complete_task)
-
-create_table_tareas()
-
 # Conexión a BDD
 init_app(app)
+
+# Creación de la tabla Productos si no existe
+create_table_productos()
 
 # Cors
 CORS(app)
 
+# CRUD
+app.route('/api/productos/get_all/', methods=['GET'])(get_all_productos)
+app.route('/api/productos/fetch/<int:producto_id>', methods=['GET'])(get_producto)
+app.route('/api/productos/create/', methods=['POST'])(create_producto)
+app.route('/api/productos/update/<int:producto_id>', methods=['PUT'])(update_producto)
+app.route('/api/productos/delete/<int:producto_id>', methods=['DELETE'])(delete_producto)  
+app.route('/api/productos/activate/<int:producto_id>', methods=['PUT'])(activate_producto)
+app.route('/api/productos/deactivate/<int:producto_id>', methods=['PUT'])(deactivate_producto)
 
 if __name__ == '__main__':
     app.run(debug=True)

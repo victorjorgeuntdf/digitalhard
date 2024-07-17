@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar | DigitalHard</title>
+    <title>Lista Productos | DigitalHard</title>
 
     <link rel="shortcut icon" href="../img/logo_pequeño.png" type="image/x-icon">
     <!-- Fuentes de iconos Font-Awesome -->
@@ -17,36 +17,48 @@
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="../styles/tareas.css">
-    <link rel="stylesheet" href="../styles/add_task.css">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.min.css">
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.min.js"></script>
+    <!-- Estilos personalizados -->
+
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/lista_productos.css">
 </head>
 
 <body>
-    <main class="dark-background">
-        <h2 id="TareasPendientes"><span class="actionTitle">Agregar nueva tarea</span><br>
-            <a href="../index.html#TareasPendientes">Cancelar</a>
-        </h2>
-        <section class="tareas">
-            <div class="tareas-container">
-                <article class="tarea pendiente chanfle">
-                    <form id="Formulario" method="POST">
-                        <input type="text" id="Titulo" name="Titulo" placeholder="Título" required>
-                        <hr>
-                        <textarea name="descripcion" id="Descripcion" class="descripcion" placeholder="Descripción"
-                            required></textarea>
-                        <div class="acciones">
-                            <a href="../index.html#TareasPendientes" id="Cancelar" title="Cancelar"><i
-                                    class='bx bxs-message-square-x'></i></a>
-                            <button type="button" id="Crear" title="Crear"><i
-                                    class='bx bxs-message-square-check'></i></button>
-                        </div>
-                        <span class="fecha" title="Fecha de creación"></span>
-                        <input id="task_id" type="hidden" name="task_id">
-                    </form>
-                </article>
+    <main>
+        <!-- Enlace para Agregar Nuevo Producto -->
+        <section class="container_description_section">
+            <div class="container">
+                <a href="add_productos.html" id="btnAgregarProducto" class="boton-agregar">Agregar Nuevo Producto</a>
+                <h2>Todos los Productos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Fecha Creación</th>
+                            <th>Fecha Actualización</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data">
+                        <!-- Aquí se mostrarán los productos dinámicamente -->
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
+
+
     <footer class="footer">
         <!-- Logo Empresa -->
         <img class="logo" src="../img/DigitalHard_sf.png" alt="logo" />
@@ -69,8 +81,7 @@
     </footer>
 
     <script src="../js/fetchData.js"></script>
-    <!-- <script src="../js/add_update_task.js"></script> -->
-    <script src="../js/ejemplo_fetch_post.js"></script>
+    <script src="../js/lista_productos.js"></script>
 </body>
 
 </html>

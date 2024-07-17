@@ -1,76 +1,65 @@
 from flask import jsonify, request
-from app.models import Task
-
+from app.models import Producto
 from datetime import date
 
-def index():
-    return jsonify(
-        {
-            'mensaje': 'Esta funcionando'
-        }
-    )
+def get_all_productos():
+    productos = Producto.get_all()
+    return jsonify([producto.serialize() for producto in productos])
 
-def get_pending_tasks():
-    tasks = Task.get_all_pending()
-    return jsonify([task.serialize() for task in tasks])
+def get_producto(producto_id):
+    producto = Producto.get_by_id(producto_id)
+    if not producto:
+        return jsonify({'message': 'Producto No Encontrado'}), 404
+    return jsonify(producto.serialize())
 
-def get_completed_tasks():
-    tasks = Task.get_all_completed()
-    return jsonify([task.serialize() for task in tasks])
-
-def get_archived_tasks():
-    tasks = Task.get_all_archived()
-    return jsonify([task.serialize() for task in tasks])
-
-def get_task(task_id):
-    task = Task.get_by_id(task_id)
-    if not task:
-        return jsonify({'message': 'Task not found'}), 404
-    return jsonify(task.serialize())
-
-def create_task():
+def create_producto():
     data = request.json
-    new_task = Task(
+    new_producto = Producto(
         nombre=data['nombre'],
         descripcion=data['descripcion'],
-        fecha_creacion=date.today().strftime('%Y-%m-%d'),
-        completada=False,
-        activa=True
+        categoria=data['categoria'],
+        precio=data['precio'],
+        cantidad_disponible=data['cantidad_disponible'],
+        marca=data['marca'],
+        modelo=data['modelo'],
+        activo=True
     )
-    new_task.save()
-    return jsonify({'message': 'Task created successfully'}), 201
+    new_producto.save()
+    return jsonify({'message': 'Producto Creado Exitosamente'}), 201
 
-def update_task(task_id):
-    task = Task.get_by_id(task_id)
-    if not task:
-        return jsonify({'message': 'Task not found'}), 404
-   
+def update_producto(producto_id):
+    producto = Producto.get_by_id(producto_id)
+    if not producto:
+        return jsonify({'message': 'Producto No Encontrado'}), 404
     data = request.json
-    task.nombre = data['nombre']
-    task.descripcion = data['descripcion']
-    task.save()
-    return jsonify({'message': 'Task updated successfully'})
+    producto.id_producto = data['id']
+    producto.nombre = data['nombre']
+    producto.descripcion = data['descripcion']
+    producto.categoria = data['categoria']
+    producto.precio = data['precio']
+    producto.cantidad_disponible = data['cantidad_disponible']
+    producto.marca = data['marca']
+    producto.modelo = data['modelo']
+    producto.save()
+    return jsonify({'message': 'Producto Actualizado Exitosamente'})
 
-def archive_task(task_id):
-    task = Task.get_by_id(task_id)
-    if not task:
-        return jsonify({'message': 'Task not found'}), 404
-   
-    task.delete()
-    return jsonify({'message': 'Movie deleted successfully'})
+def delete_producto(producto_id):
+    producto = Producto.get_by_id(producto_id)
+    if not producto:
+        return jsonify({'message': 'Producto No Encontrado'}), 404
+    producto.delete()
+    return jsonify({'message': 'Producto Eliminado Exitosamente'})
 
-def __complete_task(task_id, status):
-    task = Task.get_by_id(task_id)
-    if not task:
-        return jsonify({'message': 'Task not found'}), 404
+def __update_producto_estado(producto_id, estado):
+    producto = Producto.get_by_id(producto_id)
+    if not producto:
+        return jsonify({'message': 'Producto No Encontrado'}), 404
+    producto.activo = estado
+    producto.save()
+    return jsonify({'message': 'Producto Actualizado Exitosamente'})
 
-    task.completada = status
-    task.activa = True
-    task.save()
-    return jsonify({'message': 'Task updated successfully'})
+def activate_producto(producto_id):
+    return __update_producto_estado(producto_id, True)
 
-def set_complete_task(task_id):
-    return __complete_task(task_id, True)
-
-def reset_complete_task(task_id):
-    return __complete_task(task_id, False)
+def deactivate_producto(producto_id):
+    return __update_producto_estado(producto_id, False)
